@@ -13,13 +13,14 @@ import TokenSelect from '../Component/TokenSelect';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import DefaultTokens from '../config/default_tokens.json';
 import { storeLocalMultichart } from "../PooCoin/util";
+import TokenBg from "../Images/searchtkbg.png";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  root: { 
     '& > *': {
       paddingRight: 10
     },
-    backgroundColor: '#e9ecef !important',
+    backgroundColor: 'transparent',
     color: "black",
     [theme.breakpoints.down("xs")]: {
       '& > *': {
@@ -29,6 +30,13 @@ const useStyles = makeStyles((theme) => ({
   },
   input: {
     display: 'none',
+  },
+  tokenSelect: {
+    marginTop: "1em",
+    display: "flex",
+    justifyContent: "center",
+    paddingBottom: "3rem",
+
   },
   button: {
     margin: theme.spacing(1),
@@ -100,6 +108,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   iconBtnRight: {
+    padding:'10px',
     backgroundColor: '#fff',
     float: 'left',
     [theme.breakpoints.down("xs")]: {
@@ -110,15 +119,14 @@ const useStyles = makeStyles((theme) => ({
     float: 'right',
   },
   iconPaddingRight: {
-    paddingTop: 10,
-    display: 'none',
+    paddingLeft:'5px',
     [theme.breakpoints.down("sm")]: {
       display: 'flex',
     },
   },
 }));
 
-export default function Multichart() {
+export default function   Multichart() {
   const classes = useStyles();
   const [showMode, setShowMode] = React.useState(1);
 
@@ -152,17 +160,18 @@ export default function Multichart() {
   }
 
   let leftContainer = (
-    <div className={showMode ? classes.leftSide : classes.leftSideOther}>
-      <div className={'row'}>
+    <div className="flex justify-center">
+      {/* <div className={'row'}>
         <div className={'cell'}>
           <a href="https://click.a-ads.com/1602418/134863/" rel="nofollow noreferrer" target="_blank">
             <img alt="Alien Doge" height="90" src={leftPoster} width="970" />
           </a>
         </div>
-      </div>
-      <div style={{ display: 'flex' }}>
+      </div> */}
+
+      {/* <div style={{ display: 'flex',justifyContent:'center',alignItems:'center' }}>
         <div className={classes.searchInput}>
-          <div style={{ maxWidth: '400px' }}>
+          <div style={{ maxWidth: '100%' }}>
             <TokenSelect inputHandle={inputHandle} tokenProps={handleTokenPropsChange} />
           </div>
         </div>
@@ -171,16 +180,18 @@ export default function Multichart() {
             <FileCopyIcon />
           </IconButton>
         </div>
-      </div>
-      <Grid item xs={12} lg={12} container>
+      </div> */}
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 2xl:grid-cols-4  ">
+      
         {multichartData != null &&
           multichartData.address.map((data, index) => (
-            <Grid item xs={4} lg={4} style={{ padding: '5px' }} key={index}>
+            <Grid item xs={12} lg={12} style={{ padding: '5px' }} key={index}>
               <Panel tokenAddress={data} index={index} />
             </Grid>
           ))
         }
-      </Grid>
+      
+      </div>
     </div>
   );
 
@@ -188,11 +199,13 @@ export default function Multichart() {
 
   if (showMode) {
     container = (
-      <Grid className={classes.subContainer} container item xs={12}>
-        <Grid item xs={9} lg={9} md={8} sm={12}>
+      <Grid>
+        
+          <div>
           {leftContainer}
-        </Grid>
-        <Grid item xs={12} lg={3} md={4} sm={6} className={classes.rightSide}>
+          </div>
+        
+        {/* <Grid item xs={12} lg={3} md={4} sm={6} className={classes.rightSide}>
           <div className={classes.iconPaddingRight}>
             <IconButton color="primary" aria-label="upload picture" component="span" className={classes.iconBtnRight} onClick={handleChangeRight}>
               <FileCopyIcon />
@@ -203,7 +216,7 @@ export default function Multichart() {
             <Input />
           </div>
           <Tab className={classes.tabContainer} onSymbol={onSymbol} />
-        </Grid>
+        </Grid> */}
       </Grid>
     )
   } else {
@@ -217,7 +230,42 @@ export default function Multichart() {
   }
 
   return (
-    <div className={classes.root}>
+    <div className="container mx-auto max-w-4xl">
+    <div className="container mx-auto grid lg:grid-cols-2 grid-cols-1 items-center justify-center gap-16">
+    <div
+            className=" text-white rounded-xl"
+            style={{
+              backgroundImage: `url(${TokenBg})`,
+              overflow: "hidden",
+              backgroundSize: "cover",
+            }}
+          >
+            <h3 className="text-3xl pb-5 pt-5 text-left pl-10">Search Token Here</h3>
+            <p className="text-xs text-left pl-10">Lorem ipsum is my dummy text  Lorem ipsum is my dummy text Lorem ipsum is my dummy text Lorem ipsum is my dummy text Lorem ipsum is my dummy text </p>
+            <div className={classes.tokenSelect} style={{display:'flex',justifyContent:'center',alignItems:'center',borderRadius:'20px'}}>
+              <TokenSelect
+                inputHandle={inputHandle}
+                tokenProps={handleTokenPropsChange}
+                
+              />
+               <div className={classes.iconPaddingRight}>
+            <IconButton color="primary" aria-label="upload picture" component="span" className={classes.iconBtnRight} onClick={handleChangeRight}>
+              <FileCopyIcon />
+            </IconButton>
+          </div>
+            </div>
+          </div>
+          <div className="rounded-xl" style={{backgroundColor:"#1c1e31"}}> 
+            <div className={classes.inputWidth}>
+              <Input />
+            </div>
+            <div className="grid grid-flow-row text-white">
+            <button className="rounded-full text-left pl-3 pt-2 pb-2 mr-4 ml-4" style={{backgroundColor:"#212743"}}>Wallet</button>
+            <button className="rounded-full text-left pl-3 pt-2 pb-2 mr-4 ml-4 mt-3 mb-3" style={{backgroundColor:"#212743"}}>Starred</button>
+            <button className="rounded-full text-left pl-3 pt-2 pb-2 mr-4 ml-4 mb-3 " style={{backgroundColor:"#212743"}}>History</button>
+            </div>
+          </div>
+      </div>
       {container}
     </div>
   );

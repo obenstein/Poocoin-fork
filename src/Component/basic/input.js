@@ -49,7 +49,7 @@ const BootstrapInput = withStyles((theme) => ({
     },
   },
   input: {
-    borderRadius: 4,
+    borderRadius: 20,
     position: 'relative',
     backgroundColor: theme.palette.common.white,
     border: '1px solid #ced4da',

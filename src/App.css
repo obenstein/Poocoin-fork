@@ -1,7 +1,10 @@
+
+
 .App {
   text-align: center;
-  background-color: #e9ecef !important;
-  /* min-height: calc(100vh); */
+  /* background:url("./Images/B.G.png"); */
+  background: linear-gradient(to right , #0f0e13,#12172f,#672441 150% );
+  min-height: calc(100vh);
   color: "white";
   height: 100%;
 }

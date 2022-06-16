@@ -10,18 +10,18 @@ import TokenModal from '../Component/TokenModal';
 import DefaultTokens from '../config/default_tokens.json';
 import { useStatePersist } from 'use-state-persist';
 import { useWallet } from 'use-wallet';
-import '../css/Trade.css';
+import formBg from '../Images/tradeFormBg.png'
+// import '../css/Trade.css';
 
 import { tokenBalance, bnbBalance, getRate, tokenSwap, approveToken, getAllowance, getAmountsOut } from '../PooCoin';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: '#e9ecef !important'
-  },
+
   container: {
     margin: '20px auto 40px auto',
-    backgroundColor: '#303032',
-    width: 400,
+    background: `url(${formBg})`,overflow: "hidden",
+    backgroundSize: "cover",
+    width: 600,
     height: 'auto',
     padding: '20px',
     paddingTop: '24px',
@@ -36,26 +36,59 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 'auto',
     textTransform: "initial",
     height: '30px !important',
-    borderRadius: 'unset',
+    borderRadius: '20px 0px 0px 20px',
     paddingLeft: '8px',
     paddingRight: '8px',
-    borderLeftWidth: '1px',
-    borderColor: '#303032',
+    borderColor: 'transparent',
+    borderStyle: 'solid'
+  },
+  button0: {
+    color: 'white !important',
+    minWidth: 'auto',
+    textTransform: "initial",
+    height: '30px !important',
+    borderRadius: '10px',
+    paddingLeft: '8px',
+    paddingRight: '8px',
+    borderColor: 'transparent',
+    borderStyle: 'solid',
+    margin:"0px 4px"
+  },
+  button2: {
+    color: 'white !important',
+    minWidth: 'auto',
+    textTransform: "initial",
+    height: '30px !important',
+    // borderRadius: '20px 0px 0px 20px',
+    paddingLeft: '8px',
+    paddingRight: '8px',
+    borderColor: 'transparent',
+    borderStyle: 'solid'
+  },
+  button3: {
+    color: 'white !important',
+    minWidth: 'auto',
+    textTransform: "initial",
+    height: '30px !important',
+    borderRadius: '0px 20px 20px 0px',
+    paddingLeft: '8px',
+    paddingRight: '8px',
+    borderColor: 'transparent',
     borderStyle: 'solid'
   },
   tab: {
-    backgroundColor: '#6c757d',
-    borderColor: '#6c757d',
+    backgroundColor: '#894d6b',
+    borderColor: 'white',
   },
   tabSelected: {
-    backgroundColor: '#565e64',
-    borderColor: '#51585e',
+    backgroundColor: '#894d6b',
+    borderColor: 'white',
   },
   slippage: {
-    backgroundColor: '#6c757d'
+    backgroundColor: '#894d6b'
   },
   slippageSelected: {
-    backgroundColor: '#53CA42'
+    backgroundColor: '#894d6b'
   },
   options: {
     display: 'flex',
@@ -73,13 +106,12 @@ const useStyles = makeStyles((theme) => ({
     color: 'white',
   },
   updown: {
-    visibility: 'hidden',
 
     borderWidth: 0,
     margin: 15,
     marginBottom: 0,
-    backgroundColor: '#262626',
-    borderRadius: '999px',
+    backgroundColor: '#894d6b',
+    borderRadius: '10px',
     padding: 0,
     width: '30px',
     height: '30px'
@@ -109,11 +141,12 @@ const useStyles = makeStyles((theme) => ({
 
 const CssTextField = withStyles({
   root: {
-    width: '100%',
+    // width: '65%',
     '& .MuiInputBase-input': {
-      color: 'white',
-      backgroundColor: '#262626',
-      paddingLeft: '10px'
+      color: 'black',
+      backgroundColor: 'white',
+      paddingLeft: '10px',
+      borderRadius:"20px"
     },
     '& label.Mui-focused': {
       color: 'white',
@@ -126,7 +159,8 @@ const CssTextField = withStyles({
       zIndex: '11'
     },
     '& .MuiInputBase-root': {
-      backgroundColor: '#262626'
+      backgroundColor: 'white',
+      borderRadius:"20px"
     },
     '& .MuiTypography-colorTextSecondary': {
       color: 'white',
@@ -204,7 +238,7 @@ export default function Trade() {
   const toPancakeSwap = (tabIndex == 1 ? <InLineLink url="https://v1exchange.pancakeswap.finance/#/swap" text="Pancake v1" fontSize="14" /> : <InLineLink url="https://pancakeswap.finance/swap#/swap" text="Pancake v2" fontSize="14" />)
 
   const onAutoSlippage = () => {
-    setSlippage(0.5);
+    setSlippage(0.0);
     setIsAutoSlippage(!isAutoSlippage);
   }
 
@@ -338,7 +372,7 @@ export default function Trade() {
     setFromAmount(0);
     setToBalance(0);
     setToAmount(0);
-    setSlippage(0.5);
+    setSlippage(0.0);
 
   }, [account]);
 
@@ -381,16 +415,18 @@ export default function Trade() {
     </div>
   );
   return (
-    <div className={classes.root}>
+<div className="container mx-auto max-w-4xl">    
+  <div className={classes.root}>
       <Container fixed className={classes.container}>
-        <div className={classes.options}>
-          <div>
+        
+          <div className='flex justify-between mx-auto'>
+          <div className='rounded-full border-solid border-2 sm:border-white border-transparent grid grid-flow-col'>
             <Button onClick={() => handleChange(0)} variant="contained" className={tabIndex == 0 ? classNames(classes.tabSelected, classes.button) : classNames(classes.tab, classes.button)}>Auto</Button>
-            <Button onClick={() => handleChange(1)} variant="contained" className={tabIndex == 1 ? classNames(classes.tabSelected, classes.button) : classNames(classes.tab, classes.button)}>Pancake V1</Button>
-            <Button onClick={() => handleChange(2)} variant="contained" className={tabIndex == 2 ? classNames(classes.tabSelected, classes.button) : classNames(classes.tab, classes.button)}>Pancake V2</Button>
+            <Button onClick={() => handleChange(1)} variant="contained" className={tabIndex == 1 ? classNames(classes.tabSelected, classes.button2) : classNames(classes.tab, classes.button2)}>PancakeV1</Button>
+            <Button onClick={() => handleChange(2)} variant="contained" className={tabIndex == 2 ? classNames(classes.tabSelected, classes.button3) : classNames(classes.tab, classes.button3)}>PancakeV2</Button>
           </div>
           <div>
-            <Button variant="contained" className={classNames(classes.tab, classes.button)} onClick={handleOpen}><Icon>code</Icon></Button>
+            <Button variant="contained" className={classNames(classes.tab, classes.button0)} onClick={handleOpen}><Icon>code</Icon></Button>
             <Modal
               open={modalOpen}
               onClose={handleClose}
@@ -399,36 +435,49 @@ export default function Trade() {
             >
               {body}
             </Modal>
-            <Button variant="contained" className={classNames(classes.tab, classes.button)} ><Icon>link</Icon></Button>
+            <Button variant="contained" className={classNames(classes.tab, classes.button0)} ><Icon>link</Icon></Button>
+            <Button variant="contained" className={classNames(classes.tab, classes.button0)} ><Icon>settings</Icon></Button>
           </div>
-        </div>
-        <div style={{ marginTop: '15px' }}>
+          </div>
+        
+        <div className='flex justify-right items-center' style={{ marginTop: '15px' }}><p className='pr-1 text-sm font-semibold'>Auto Selected:</p> 
           {toPancakeSwap}
         </div>
         <div>
           <div className={classes.label}>
-            <span>Slippage</span>
+            
+            <span className='text-black'>Slippage</span>
+
+          </div>
+          <div className={classes.label}>
+            
+            <span className='text-black text-sm pb-5 font-semibold'>From (BNS)</span>
+
           </div>
           <CssTextField
+          style={{width:"70%"}}
             id="standard-start-adornment"
             InputProps={{
               disableUnderline: true,
               value: slippage,
-              placeholder: '0.5',
+              placeholder: '0.0',
               onChange: onSlippageChange,
               disabled: isAutoSlippage,
               endAdornment:
                 <InputAdornment position="end">
-                  <span style={{ color: 'white' }}>%</span>
-                  <Button variant="contained" onClick={onAutoSlippage} className={autoSlippage}>Auto Slippage</Button>
+                  <span style={{ color: 'black',paddingRight:"10px" }}>%</span>
+                
                 </InputAdornment>,
             }}
           />
+            <Button variant="contained" onClick={onAutoSlippage} style={{borderRadius:"20px",color:"#5033ff",backgroundColor:"white",border:"solid 1px",padding:"3px 10px 3px 10px",marginLeft:"30px",fontWeight:"bold",fontSize:"12px"}}>Auto Slippage</Button>
           <div className={classes.label}>
-            <span>From ({fromTokenSymbol})</span>
-            <span>Balance: {fromBalance}</span>
+            <span className='text-black text-sm pb-5 font-semibold'>From ({fromTokenSymbol})</span>
+            <span className='text-black text-sm pb-5 font-semibold'>Balance: {fromBalance}</span>
           </div>
           <CssTextField
+                    style={{width:"100%"}}
+
             InputProps={{
               disableUnderline: true,
               value: fromAmount,
@@ -443,13 +492,16 @@ export default function Trade() {
             }}
           />
           <div style={{ textAlign: 'center' }}>
-            <Button variant="contained" className={classNames(classes.updown, classes.button)} onClick={() => onclickFromToChange()}><ArrowDownwardTwoToneIcon /></Button>
+            <Button style={{marginTop:"30px"}} variant="contained" className={classNames(classes.updown, classes.button0)} onClick={() => onclickFromToChange()}><ArrowDownwardTwoToneIcon/></Button>
+           
           </div>
           <div className={classes.tolabel}>
-            <span>To ({toTokenSymbol})</span>
-            <span>Balance: {toBalance}</span>
+            <span className='text-black text-sm pb-5 font-semibold'>To ({toTokenSymbol})</span>
+            <span className='text-black text-sm pb-5 font-semibold'>Balance: {toBalance}</span>
           </div>
           <CssTextField
+                              style={{width:"100%"}}
+
             id="standard-start-adornment"
             InputProps={{
               disableUnderline: true,
@@ -473,7 +525,7 @@ export default function Trade() {
               : ""
           }
           <div className={classes.label}>
-            {!account && <span>Connect your wallet</span>}
+            {!account && <span className='text-black text-sm pb-5 font-semibold'>Connect your wallet</span>}
             {
               account && fromToken && requireApprove() && <Button
                 variant={"contained"}
@@ -492,6 +544,7 @@ export default function Trade() {
           </div>
         </div>
       </Container>
+    </div>
     </div>
   )
 }

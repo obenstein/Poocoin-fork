@@ -42,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
       border: "1px solid #9fdcff!important",
       outline: 0,
       boxShadow: "0 0 0 .25rem rgba(62,184,255,.25)",
+      borderRadius:""
     },
     "& .MuiOutlinedInput-notchedOutline": {
       backgroundColor: "white",
@@ -55,6 +56,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "white",
     minWidth: "25px!important",
     border: "1px solid #c4c4c4",
+    borderRadius: 20,
+
   },
 }));
 

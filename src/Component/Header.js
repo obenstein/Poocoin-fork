@@ -18,15 +18,13 @@ import { useSelector, useDispatch } from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
   appBarSolid: {
-    backgroundColor: '#262626',
+    backgroundColor: "transparent",
     boxShadow: 'none',
-    padding: 15,
     textAlign: 'center',
-    borderBottom: '3px solid #484e53',
     position: 'initial'
   },
   Toolbar: {
-    padding: "0px 50px 0px 50px",
+
     [theme.breakpoints.down("xs")]: {
       padding: '10px 0px 10px 10px',
     },
@@ -86,10 +84,10 @@ const useStyles = makeStyles((theme) => ({
   },
   connect: {
     textTransform: 'none',
-    fontSize: '1rem',
+    fontSize: '0.8rem',
     fontWeight: '500',
     color: theme.palette.common.white,
-    backgroundColor: '#53CA42',
+    background: "linear-gradient(to right , #12cb90,#076aac)",
     [theme.breakpoints.down("xs")]: {
       textAlign: 'center',
     },
@@ -274,20 +272,22 @@ export default function Header(props) {
   };
 
   return (
+    <div className='max-w-4xl mx-auto grid lg:grid-cols-1 grid-cols-3' >
+      <div>
     <AppBar position="fixed" className={classes.appBarSolid}>
-      <Toolbar className={classes.Toolbar}>
-        <Grid container direction="row" alignItems="center">
+      <Toolbar style={{padding:"0px"}}>
+        <Grid container direction="row" alignItems="center" justifyContent='center' >
           <Grid item md={4} sm={12} xl={4}>
             <Grid container alignItems="center">
               <Grid item>
                 <a href="/" className={classes.iconLink}>
-                  <img src={PoocoinIcon} className={classes.icon}></img>
+                  {/* <img src={PoocoinIcon} className={classes.icon}></img> */}
                   <span>
-                    PooCoin <br />Charts
+                    Logo Here
                   </span>
                 </a>
               </Grid>
-              <Grid item className={classes.chainLinkGroup}>
+              {/* <Grid item className={classes.chainLinkGroup}>
                 <NativeSelect
                   value={network}
                   name="age"
@@ -305,8 +305,8 @@ export default function Header(props) {
                     KuChain (KCC)
                   </option>
                 </NativeSelect>
-              </Grid>
-              {
+              </Grid> */}
+              {/* {
                 networkChainId == networkValue.Binance
                   ?
                   <Grid item className={classes.headerIcon}>
@@ -329,7 +329,7 @@ export default function Header(props) {
                       <img src={TelegramIcon} height='25' />
                     </a>
                   </Grid>
-              }
+              } */}
             </Grid>
           </Grid>
           {
@@ -340,7 +340,13 @@ export default function Header(props) {
                 <Link className={classes.link} to="/swap">Trade</Link>
                 <Link className={classes.link} to="/multichart">Multi&nbsp;Chart</Link>
                 <Link className={classes.link} to="/about">About</Link>
+                <Link className={classes.link} to="/about">Tools</Link>
+
                 <Link className={classes.link} to="/premium">Premium</Link>
+                <Link className={classes.link} to="/premium">Advertise</Link>
+                <br/>
+                <Link className={classes.link} to="/premium">Price Free Bot</Link>
+
                 {/* <a className={classes.link} href="/about">About</a>
                 <a className={classes.link} href="/tools">Tools</a><br />
                 <a className={classes.link} href="/premium">Premium</a>
@@ -371,7 +377,7 @@ export default function Header(props) {
             {coinAmount}
           </Grid>
           <Grid item md={1} sm={12} xl={1} container justifyContent={'center'} >
-            <Button variant="contained" className={classes.connect} onClick={connectOrDisconnect}>{connectLabel}
+            <Button variant="contained" className={classes.connect} onClick={connectOrDisconnect}>Connect
             </Button>
           </Grid>
         </Grid>
@@ -389,5 +395,7 @@ export default function Header(props) {
         </div>
       </Modal>
     </AppBar >
+    </div>
+    </div>
   );
 }

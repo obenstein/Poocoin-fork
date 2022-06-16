@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Divider, Modal } from "@material-ui/core";
 import BSC from "../../Images/bscscan.png";
-import LpInfoItem from "./lpInfoItem";
+import LpInfoItem from "./LpInfoItem";
 import { tokenBalance, getAmountsOut } from "../../PooCoin";
 import { numberWithCommas } from "../../PooCoin/util";
 import { useSelector } from 'react-redux';
