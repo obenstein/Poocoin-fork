@@ -1,0 +1,6 @@
+.AdvHeading{font-size: 40px;
+font-weight: 500;
+background: -webkit-linear-gradient(left,#12cb90,#076aac);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+ }

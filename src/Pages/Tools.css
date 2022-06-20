@@ -1,0 +1,25 @@
+.TableContainer{
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+
+}
+.TableCell{
+    color: white !important;
+    border: none !important;
+}
+.TableCell a{
+    background-color: #9f597c;
+    border-radius: 20px !important;
+    border: solid 2px white;
+    font-size: 0.8rem !important;
+}
+.TableCell span{
+    font-size: 0.8rem !important;
+}
+.ToolsContainer{
+    background: url('../Images/tradeFormBg.png');
+    overflow: hidden;
+    background-size: cover;
+    border-radius: 20px;
+}

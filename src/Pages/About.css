@@ -1,0 +1,11 @@
+.ToppingText{
+    font-size: 40px;
+    font-weight: 400;
+    background: -webkit-linear-gradient(left,#12cb90,#076aac);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+     
+}
+.dollars{
+    color:#01f041;
+}

@@ -18,7 +18,7 @@ const useStyles = makeStyles({
     minWidth: '0px !important',
     padding: 8,
     textTransform: 'none',
-    color: '#fff',
+    // color: '#fff',
   },
   tabpanel: {
     padding: '0px !important',

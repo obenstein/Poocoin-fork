@@ -10,6 +10,9 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import formBg from '../Images/tradeFormBg.png'
+import './Tools.css'
+
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -25,16 +28,16 @@ const useStyles = makeStyles({
     borderWidth: '15px',
     borderColor: '#303032',
     marginTop: 0,
-    textAlign: 'center',
+    textAlign: 'left',
     maxWidth: '80%',
   },
   tableCell: {
     margin: 0,
-    padding: '4px',
+    padding: '2px!important',
     backgroundColor: '#D4D4D4',
     borderStyle: 'solid',
     borderWidth: '1px',
-    borderColor: '#B9B9B9',
+    borderColor: 'red',
   },
   item: {
     padding: '0',
@@ -64,23 +67,27 @@ const rows = [
 export default function Tools () {
   const classes = useStyles();
   return (
-      <div className={classes.root} >
-        <h1 className={classes.title}>Tools</h1>
-        <TableContainer className={classes.table} component={Paper}>
+    <div className='container mx-auto max-w-2xl pb-10 ToolsContainer'>
+      <div className={classes.root}>
+        <h1 className='text-4xl text-white pt-10 pb-5'>Tools</h1>
+        <TableContainer className='TableContainer' component={Paper}>
           <Table size="small" aria-label="a dense table">
             <TableBody>
+              
               {rows.map((row) => (
                 <TableRow key={row.item}>
-                  <TableCell className={classes.tableCell} component="th" scope="row">
-                    <ItemLink className={classes.item} href={row.url}>
+                  <TableCell  className='TableCell' component="th" scope="row">
+                    <ItemLink className='ItemLink' href={row.url}>
                       <ListItemText primary={row.item} />
                     </ItemLink>
                   </TableCell>
                 </TableRow>
               ))}
+              
             </TableBody>
           </Table>
         </TableContainer>
+      </div>
       </div>
   )
 }

@@ -16,6 +16,7 @@ import WalletTrack2 from '../Images/wallettrack2.png';
 import WalletTrack3 from '../Images/wallettrack3.png';
 import BuySell from '../Images/buysell.png';
 import TradingPreview from '../Images/trending-preview.png';
+import './Premium.css'
 
 
 const useStyles = makeStyles(theme => ({
@@ -24,24 +25,12 @@ const useStyles = makeStyles(theme => ({
   },
   manual: {
     padding: '20px',
-    backgroundColor: '#ffc107',
+    backgroundColor: 'purple',
     color: '#262626',
     fontWeight: 600,
-    // [theme.breakpoints.down("lg")]: {
-    //   maxWidth: '1116px'
-    // },
-    // [theme.breakpoints.down("md")]: {
-    //   maxWidth: '936px'
-    // },
-    // [theme.breakpoints.down("sm")]: {
-    //   maxWidth: '696px'
-    // },
-    // [theme.breakpoints.down("xs")]: {
-    //   maxWidth: '516px'
-    // },
   },
   link: {
-    color: 'blue',
+    color: '#04d1c0',
     fontWeight: 500,
   },
   title: {
@@ -61,12 +50,15 @@ const useStyles = makeStyles(theme => ({
   },
   whiteText: {
     color: 'white',
+    padding:'10px 0px'
   },
   card1: {
     marginTop: '10px',
     maxWidth: '1116px',
-    backgroundColor: '#303032',
+    backgroundColor: 'transparent',
+    borderRadius:'20px',
     padding: '20px',
+    boxShadow:'none',
     [theme.breakpoints.down("lg")]: {
       maxWidth: '1116px'
     },
@@ -82,9 +74,33 @@ const useStyles = makeStyles(theme => ({
   },
   card2: {
     maxWidth: '1116px',
-    backgroundColor: '#303032',
+    backgroundColor: '#0f0e13',
     padding: '20px',
     marginTop: '10px',
+    borderRadius:'12px',
+    boxShadow:'none',
+
+    [theme.breakpoints.down("lg")]: {
+      maxWidth: '1116px'
+    },
+    [theme.breakpoints.down("md")]: {
+      maxWidth: '936px'
+    },
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: '696px'
+    },
+    [theme.breakpoints.down("xs")]: {
+      maxWidth: '516px'
+    },
+  },
+  card3: {
+    maxWidth: '1116px',
+    backgroundColor: 'transparent',
+    padding: '20px',
+    margin: '60px 0px',
+    borderRadius:'12px',
+    boxShadow:'none',
+
     [theme.breakpoints.down("lg")]: {
       maxWidth: '1116px'
     },
@@ -139,13 +155,14 @@ export default function Tools() {
 
   return (
     <div className={classes.root} >
-      <div className={classes.manual}>
-        <h1>Premium</h1>
-        <p>
+      <div className='text-white'>
+        <h1 className='PremiumHeading'>Premium</h1>
+        <div className='pr-5 pl-5'>
+        <p className='PremiumText'>
           The 8% transaction fee will apply to the POOCOIN used to create LP and again on removal of LP.
         </p>
-        <p>
-          Unlock premium tier 1 by holding <span className={classes.blueText}>$100</span> worth of &nbsp;
+        <p className='text-white'>
+          Unlock premium tier 1 by holding <span className='dollars'>$100</span> worth of &nbsp;
           <a target="_blank" href="https://exchange.pancakeswap.finance/#/add/BNB/0xB27ADAfFB9fEa1801459a1a81B17218288c097cc" className={classes.link}>
             POOCOIN/BNB LP
           </a>
@@ -158,7 +175,7 @@ export default function Tools() {
           tokens in your wallet.
         </p>
         <p>
-          Unlock premium tier 2 by holding <span className={classes.greenText}>$300</span> worth of &nbsp;
+          Unlock premium tier 2 by holding <span className='dollars'>$300</span> worth of &nbsp;
           <a target="_blank" href="https://exchange.pancakeswap.finance/#/add/BNB/0xB27ADAfFB9fEa1801459a1a81B17218288c097cc" className={classes.link}>
             POOCOIN/BNB LP
           </a>
@@ -171,7 +188,7 @@ export default function Tools() {
           tokens in your wallet.
         </p>
         <p>
-          Unlock premium tier 3 by holding <span className={classes.greenText}>$2000</span> worth of &nbsp;
+          Unlock premium tier 3 by holding <span className='dollars'>$2000</span> worth of &nbsp;
           <a target="_blank" href="https://exchange.pancakeswap.finance/#/add/BNB/0xB27ADAfFB9fEa1801459a1a81B17218288c097cc" className={classes.link}>
             POOCOIN/BNB LP
           </a>
@@ -183,50 +200,64 @@ export default function Tools() {
           and 3.2544 BNB)<br></br>
           tokens in your wallet.
         </p>
-
-        <h2>Premium features</h2>
-        <p>The current premium features are:</p>
+        </div>
+        <h2 className='FeatureHeadings mt-10 mb-5'>Premium features</h2>
+        <p className='PremiumText mb-10'>The current premium features are:</p>
       </div>
 
-
+      <div className="CardContainer container mx-auto max-w-4xl pb-10" >
       <Card className={classes.card1}>
         <CardContent>
-          <h3 className={classes.whiteText}>Tier 1: Track other wallets</h3>
-          <p className={classes.whiteText}>Click "Track" on a transaction to track the trader's wallet.</p>
+          <h3 className='text-white text-4xl font-bold mt-10'>Tier 1: Track other wallets</h3>
+          <div className='md:flex flex-row justify-around items-center max-w-2xl mt-10 mb-10'>
           <img src={WalletTrack1}></img>
+          <p className='text-white'>Click "Track" on a transaction to track the trader's wallet.</p>
+          
+          </div>
+          <div className='md:flex flex-row justify-around items-center mb-10 max-w-3xl'>
 
-          <p className={classes.whiteText}>This will change the wallet token list to show their wallet instead of your own.</p>
-          <img src={WalletTrack2}></img>
+          <img src={WalletTrack2} className='w-72 mt-5 mb-5'></img>
 
-          <p className={classes.whiteText}>Click the "Clear" button to go back to your own wallet.</p>
-          <p className={classes.whiteText}>You can also track a wallet by entering the wallet address into the input field and clicking "Go"</p>
-          <img src={WalletTrack3}></img>
+          <p className='text-white'>This will change the wallet token list to show their wallet instead of your own.</p>
+          </div>
+          <div className='md:flex flex-row justify-around items-center mb-10 max-w-3xl'>
+          <img src={WalletTrack3} className='w-72 mt-5 mb-5'></img>
+          <div>
+          <p className='text-white'>Click the "Clear" button to go back to your own wallet.</p>
+          <p className='text-white'>You can also track a wallet by entering the wallet address into the input field and clicking "Go"</p>
+          </div>
+</div>
 
         </CardContent>
       </Card>
       <Card className={classes.card2}>
         <CardContent>
-          <h3 className={classes.whiteText}>Tier 1: Disable ads</h3>
+          <h3 className='text-white text-4xl font-bold mt-10'>Tier 1: Disable ads</h3>
           <p className={classes.whiteText}>Disable ads by checking the box.</p>
 
           <StyledCheckbox disabled /> <span className={classes.disabledLabel}>Disable ads (premium feature)</span>
 
         </CardContent>
       </Card>
-      <Card className={classes.card2}>
+      <Card className={classes.card3}>
         <CardContent>
-          <h3 className={classes.whiteText}>Tier 2: Show trades of tracked wallets</h3>
-          <p className={classes.whiteText}>Show the trades of tracked wallets plotted on the chart, and enable the "Wallet tx" tab for them.</p>
+          <div className='md:flex flex-row justify-center items-center '>
+            <div className='max-w-sm md:pr-10 mb-5'>
+          <h3 className='text-white text-4xl font-bold mt-10 text-left pb-5'>Tier 2: Show trades of tracked wallets</h3>
+          <p className='text-white text-left text-sm'>Show the trades of tracked wallets plotted on the chart, and enable the "Wallet tx" tab for them.</p>
+          </div>
           <img src={BuySell} style={{ width: '146px' }}></img>
+          </div>  
         </CardContent>
       </Card>
       <Card className={classes.card2}>
         <CardContent>
-          <h3 className={classes.whiteText}>Tier 3: View more trending websites/tokens.</h3>
-          <p className={classes.whiteText}>Unlock the ability to view trending websites/tokens in more timescales, as well as listing the top 100 instead of 10.</p>
+          <h3 className='text-white text-4xl font-bold mt-10 pb-5'>Tier 3: View more trending websites/tokens.</h3>
+          <p className='text-white text-sm pb-10'>Unlock the ability to view trending websites/tokens in more timescales, as well as listing the top 100 instead of 10.</p>
           <img src={TradingPreview} style={{ maxWidth: '90%' }}></img>
         </CardContent>
       </Card>
+      </div>
     </div>
   )
 }

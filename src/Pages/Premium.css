@@ -1,0 +1,22 @@
+.PremiumHeading{
+    font-size: 40px;
+    font-weight: bold;
+    background: -webkit-linear-gradient(left,#12cb90,#076aac);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+.PremiumText{
+    color:#00ffe4;
+}
+.FeatureHeadings{
+    font-size: 40px;
+    font-weight: bold;
+    background: -webkit-linear-gradient(left,#12cb90,#076aac);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+
+}
+.CardContainer{
+    background-color: #15131a;
+    border-radius: 20px;
+}

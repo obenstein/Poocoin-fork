@@ -15,7 +15,7 @@ import CloseIcon from '@material-ui/icons/Close';
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
-    backgroundColor: "#303030",
+    backgroundColor: "#17151d",
     fontSize: "12px !important",
   },
   SubList: {

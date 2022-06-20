@@ -14,6 +14,9 @@ import FileCopyIcon from '@material-ui/icons/FileCopy';
 import DefaultTokens from '../config/default_tokens.json';
 import { storeLocalMultichart } from "../PooCoin/util";
 import TokenBg from "../Images/searchtkbg.png";
+import ArrowDropDownIcom from '@material-ui/icons/ArrowDropDown'
+import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp'
+
 
 const useStyles = makeStyles((theme) => ({
   root: { 
@@ -185,7 +188,7 @@ export default function   Multichart() {
       
         {multichartData != null &&
           multichartData.address.map((data, index) => (
-            <Grid item xs={12} lg={12} style={{ padding: '5px' }} key={index}>
+            <Grid item xs={12} lg={12} style={{ padding: '8px' }} key={index}>
               <Panel tokenAddress={data} index={index} />
             </Grid>
           ))
@@ -231,7 +234,7 @@ export default function   Multichart() {
 
   return (
     <div className="container mx-auto max-w-4xl">
-    <div className="container mx-auto grid lg:grid-cols-2 grid-cols-1 items-center justify-center gap-16">
+    <div className="container mx-auto grid lg:grid-cols-2 grid-cols-1 items-center justify-center gap-4 mb-14">
     <div
             className=" text-white rounded-xl"
             style={{
@@ -242,7 +245,7 @@ export default function   Multichart() {
           >
             <h3 className="text-3xl pb-5 pt-5 text-left pl-10">Search Token Here</h3>
             <p className="text-xs text-left pl-10">Lorem ipsum is my dummy text  Lorem ipsum is my dummy text Lorem ipsum is my dummy text Lorem ipsum is my dummy text Lorem ipsum is my dummy text </p>
-            <div className={classes.tokenSelect} style={{display:'flex',justifyContent:'center',alignItems:'center',borderRadius:'20px'}}>
+            <div className={classes.tokenSelect,"p-10"} style={{display:'flex',justifyContent:'center',alignItems:'center',borderRadius:'20px'}}>
               <TokenSelect
                 inputHandle={inputHandle}
                 tokenProps={handleTokenPropsChange}
@@ -260,9 +263,9 @@ export default function   Multichart() {
               <Input />
             </div>
             <div className="grid grid-flow-row text-white">
-            <button className="rounded-full text-left pl-3 pt-2 pb-2 mr-4 ml-4" style={{backgroundColor:"#212743"}}>Wallet</button>
-            <button className="rounded-full text-left pl-3 pt-2 pb-2 mr-4 ml-4 mt-3 mb-3" style={{backgroundColor:"#212743"}}>Starred</button>
-            <button className="rounded-full text-left pl-3 pt-2 pb-2 mr-4 ml-4 mb-3 " style={{backgroundColor:"#212743"}}>History</button>
+            <button className="rounded-full text-left pl-3 pt-2 pb-2 mr-4 ml-4" style={{backgroundColor:"#212743"}}>Wallet  <ArrowDropDownIcom  /></button>
+            <button className="rounded-full text-left pl-3 pt-2 pb-2 mr-4 ml-4 mt-3 mb-3" style={{backgroundColor:"#212743"}}>Starred  <ArrowDropDownIcom  /></button>
+            <button className="rounded-full text-left pl-3 pt-2 pb-2 mr-4 ml-4 mb-3 " style={{backgroundColor:"#212743"}}>History  <ArrowDropDownIcom  /></button>
             </div>
           </div>
       </div>

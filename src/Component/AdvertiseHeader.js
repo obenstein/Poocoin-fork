@@ -8,12 +8,17 @@ import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 const useStyles = makeStyles((theme) => ({
     HeaderBtn: {
         marginLeft: '.25rem!important',
-        backgroundColor: '#262626',
-        borderRadius: '.25rem!important',
-        boxShadow: 'inset 0 1px 0 hsl(0deg 0% 100% / 15%), 0 1px 1px rgb(0 0 0 / 8%)',
+        backgroundColor: 'transparent',
+        borderRadius: '20px!important',
         lineHeight: 1,
+        border:'solid 1px #11be94',
         textTransform: 'none',
-        padding: '0px'
+        padding: '0px',
+        color:"white",
+        "&:hover": {
+            backgroundColor:"white",
+            color:"#11be94",
+          },
     },
     aTag: {
         padding: '11px'
@@ -46,29 +51,26 @@ export default function AdvertiseHeader() {
         }
     };
     return (
-        <div style={{ marginBottom: '1rem' }}>
-            <Card className={'Card'} style={{ textAlign: 'left', color: 'white' }}>
+        <div>
+    <Card className={'Card'} style={{ textAlign: 'left', color: 'white', borderRadius:"0px" }}>
                 <ToggleButtonGroup
                     exclusive
                     value={alignment}
                     onChange={handleAlignment}
                     aria-label="text alignment"
                 >
-                    <ToggleButton className={classes.HeaderBtn} value="1" aria-label="left aligned">
-                        <Link className={classes.aTag} to="/promote/banners">Banner Ads</Link>
-                    </ToggleButton>
-                    <ToggleButton className={classes.HeaderBtn} value="2" aria-label="centered">
-                        <Link className={classes.aTag} to="/promote/un-vetted">Un-Vetted List</Link>
-                    </ToggleButton>
-                    <ToggleButton className={classes.HeaderBtn} value="3" aria-label="right aligned">
-                        <Link className={classes.aTag} to="/promote/vetted">Vetted List</Link>
-                    </ToggleButton>
+                    <div className='advNavContainer'>
                     <ToggleButton className={classes.HeaderBtn} value="4" aria-label="right aligned">
                         <Link className={classes.aTag} to="/promote/pricebot">Telegram Price Bot</Link>
                     </ToggleButton>
-                    <ToggleButton className={classes.HeaderBtn} value="5" aria-label="right aligned">
-                        <Link className={classes.aTag} to="/promote/audits">Audits</Link>
+                    <ToggleButton className={classes.HeaderBtn} value="1" aria-label="left aligned">
+                        <Link className={classes.aTag} to="/promote/banners">Banner Ads</Link>
                     </ToggleButton>
+                  
+                    <ToggleButton className={classes.HeaderBtn} value="5" aria-label="right aligned">
+                        <Link className={classes.aTag} to="/promote/audits">Promotion List (Discontinued)</Link>
+                    </ToggleButton>
+                    </div>
                 </ToggleButtonGroup>
             </Card>
         </div >

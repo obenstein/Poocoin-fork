@@ -7,12 +7,14 @@ import UnVetted from './Advertise/UnVetted';
 import Vetted from './Advertise/Vetted';
 import Telegram from './Advertise/Telegram';
 import Audits from './Advertise/Audits';
+import './advcss.css';
+
 const useStyles = makeStyles((theme) => ({
     title: {
-        color: 'white',
+        color: '',
         fontSize: '2.5rem',
         fontWeight: '700',
-        marginBottom: '1rem'
+        marginBottom: '1rem',
     }
 }));
 
@@ -21,11 +23,12 @@ export default function Advertise() {
 
     return (
         <div className={'AdvertiseBody'}>
-            <h1 className={classes.title}>
+            <h2 className="AdvHeading">
                 Promote your token
-            </h1>
+            </h2>
 
             <Router>
+                <div className='container mx-auto max-w-4xl items-center'>
                 <AdvertiseHeader />
                 <Switch>
                     <Route path="/promote" exact>
@@ -37,6 +40,7 @@ export default function Advertise() {
                     <Route path="/promote/pricebot" component={Telegram} />
                     <Route path="/promote/audits" component={Audits} />
                 </Switch>
+                </div>
             </Router>
         </div>
     )

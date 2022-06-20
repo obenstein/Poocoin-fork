@@ -272,8 +272,8 @@ export default function Header(props) {
   };
 
   return (
-    <div className='max-w-4xl mx-auto grid lg:grid-cols-1 grid-cols-3' >
-      <div>
+    <div style={{maxWidth:"53rem"}} className='mx-auto grid grid-cols-1' >
+      
     <AppBar position="fixed" className={classes.appBarSolid}>
       <Toolbar style={{padding:"0px"}}>
         <Grid container direction="row" alignItems="center" justifyContent='center' >
@@ -287,49 +287,6 @@ export default function Header(props) {
                   </span>
                 </a>
               </Grid>
-              {/* <Grid item className={classes.chainLinkGroup}>
-                <NativeSelect
-                  value={network}
-                  name="age"
-                  onChange={handleNetworkChange}
-                  className={classes.chainLinkInput}
-                  inputProps={{ 'aria-label': 'age' }}
-                >
-                  <option className={classes.chainLink} value={networkValue.Binance}>
-                    Binance (BSC)
-                  </option>
-                  <option className={classes.chainLink} value={networkValue.Polygon}>
-                    Polygon (Matic)
-                  </option>
-                  <option className={classes.chainLink} value={networkValue.Kuchain}>
-                    KuChain (KCC)
-                  </option>
-                </NativeSelect>
-              </Grid> */}
-              {/* {
-                networkChainId == networkValue.Binance
-                  ?
-                  <Grid item className={classes.headerIcon}>
-                    <Link
-                      to={`/tokens/${DefaultTokens.POOCOIN.address}`}
-                      onClick={() => dispatch({ type: 'SET_TOKENADDRESS', payload: DefaultTokens.POOCOIN.address })}
-                    >
-                      <span style={{ borderRadius: '999px', backgroundColor: 'white', padding: '5px' }}>
-                        <img src={PoocoinIcon} height="18" />
-                      </span>
-                      <span className={classes.amountColor}> ${priceData} </span>
-                    </Link>
-                    <a href="https://t.me/poocointokenchat" target="_blank">
-                      <img src={TelegramIcon} height='25' />
-                    </a>
-                  </Grid>
-                  :
-                  <Grid item>
-                    <a href="https://t.me/poocointokenchat" target="_blank">
-                      <img src={TelegramIcon} height='25' />
-                    </a>
-                  </Grid>
-              } */}
             </Grid>
           </Grid>
           {
@@ -337,21 +294,15 @@ export default function Header(props) {
             <Grid item md={5} sm={12} xl={5} container justifyContent={'center'} >
               <div className={classes.linkGroup}>
                 <Link className={classes.link} to="/">Charts</Link>
-                <Link className={classes.link} to="/swap">Trade</Link>
+                <Link className={classes.link} to="/trade">Trade</Link>
                 <Link className={classes.link} to="/multichart">Multi&nbsp;Chart</Link>
                 <Link className={classes.link} to="/about">About</Link>
-                <Link className={classes.link} to="/about">Tools</Link>
+                <Link className={classes.link} to="/tools">Tools</Link>
 
                 <Link className={classes.link} to="/premium">Premium</Link>
-                <Link className={classes.link} to="/premium">Advertise</Link>
+                <Link className={classes.link} to="/promote/banners">Advertise</Link>
                 <br/>
                 <Link className={classes.link} to="/premium">Price Free Bot</Link>
-
-                {/* <a className={classes.link} href="/about">About</a>
-                <a className={classes.link} href="/tools">Tools</a><br />
-                <a className={classes.link} href="/premium">Premium</a>
-                <a className={classes.link} href="/promote">Advertise</a>
-                <a className={classes.link} href="https://t.me/Poocoin_Pricebot">Free&nbsp;Price&nbsp;Bot</a> */}
               </div>
             </Grid>
           }
@@ -396,6 +347,6 @@ export default function Header(props) {
       </Modal>
     </AppBar >
     </div>
-    </div>
+
   );
 }

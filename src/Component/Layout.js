@@ -96,7 +96,7 @@ function Layout() {
             <Route path="/" exact component={Home} />
             <Route path="/tools" exact component={Tools} />
             <Route path="/premium" exact component={Premium} />
-            <Route path="/swap" exact component={Trade} />
+            <Route path="/trade" exact component={Trade} />
             <Route path="/promote" component={Advertise} />
             <Route path="/multichart" exact component={Multichart} />
             <Route path='/about' exact component={() => <About tokenAddress={DefaultTokens.POOCOIN.address} />}

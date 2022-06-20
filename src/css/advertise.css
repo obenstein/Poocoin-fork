@@ -4,7 +4,7 @@
 
 @media(min-width: 1200px){
     .AdvertiseBody {
-        font-family: 'sans-serif';
+        
         width: 1100px;
         display: inline-block;
     }
@@ -12,7 +12,7 @@
 
 @media only screen and (min-width: 992px) and (max-width: 1200px)  {
     .AdvertiseBody {
-        font-family: 'sans-serif';
+        
         width: 960px;
         display: inline-block;
     }
@@ -20,7 +20,7 @@
 
 @media only screen and (min-width: 768px) and (max-width: 992px)  {
     .AdvertiseBody {
-        font-family: 'sans-serif';
+        
         width: 720px;
         display: inline-block;
     }
@@ -28,7 +28,7 @@
 
 @media only screen and (min-width: 576px) and (max-width: 768px)  {
     .AdvertiseBody {
-        font-family: 'sans-serif';
+        
         width: 540px;
         display: inline-block;
     }
@@ -36,7 +36,6 @@
 
 @media only screen and (max-width: 576px){
     .AdvertiseBody {
-        font-family: 'sans-serif';
         width: 100%;
         display: inline-block;
     }
@@ -49,12 +48,25 @@
 
 /* Banners page style */
 
-.Card {
-    background-color: #303032!important;
+.MainCard {
+    background-color: #15131a !important;
     padding: 1rem;
     color: white!important;
     text-align: left;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    text-align: center;
+    border-radius: 0px 0px 20px 20px !important;
+}
+
+.Card {
+    background-color: #15131a !important;
+    padding: 1rem;
+    color: white!important;
+    text-align: left;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    text-align: center;
+    border-radius: 20px 20px 0px 0px !important;
+
 }
 
 .Card1 {
@@ -67,10 +79,15 @@
 
 a {
     text-decoration: none;
-    color: white;
     font-size: 1rem;
 }
-
+.advNavContainer{
+    background-color: #0f0e13;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+}
 .Mui-selected {
     background-color: #1e1e1e!important;
     box-shadow: inset 0 3px 5px rgb(0 0 0 / 13%), 0 0 0 0.25rem rgb(71 71 71 / 50%)!important;
@@ -100,12 +117,10 @@ hr {
     margin: 1rem 0 1rem 0;
 }
 
-.fwBold {
-    font-weight: 700!important;
-}
-
-.fs5 {
-    font-size: 1.25rem!important;
+.advDesc {
+    font-size: 1.45rem!important;
+    font-weight: 100!important;
+    padding: 40px 30px;
 }
 
 .fs2 {
@@ -129,7 +144,7 @@ hr {
 }
 
 .border {
-    border: 1px solid #262626!important;
+    border: 1px solid transparent;
 }
 
 .img-fluid, .img-thumbnail {
@@ -214,7 +229,7 @@ p {
     width: 100%;
 }
 table, th, td {
-    border: 1px solid;
+
     border-collapse: collapse;
     padding: .5rem;
     border-color: #262626;
@@ -278,4 +293,29 @@ table, th, td {
     background-color: transparent;
     border: transparent;
     float: right;
+}
+.PreviewHeading{
+    font-size: 20px;
+    font-weight: 400;
+    background: -webkit-linear-gradient(left,#12cb90,#076aac);-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+.ContactHeading{
+    font-size: 35px;
+    font-weight: 400;
+    background: -webkit-linear-gradient(left,#12cb90,#076aac);-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+.TelegramBtn{
+    padding: 8px !important;
+    margin: 8px !important;
+    background: -webkit-linear-gradient(left,#12cb90,#076aac);
+    -webkit-text-fill-color: transparent;
+    float: left;
+    border-radius: 20% !important;
+}
+.mainFooter a{
+    text-align: left;
 }

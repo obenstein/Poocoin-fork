@@ -6,8 +6,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   inLineLink: {
-    color: '#3BAAEB',
+    color: '#01efd7!important',
     overflowWrap: 'break-word',
+    textAlign:"left"
   }
 });
 

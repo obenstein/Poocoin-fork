@@ -7,6 +7,9 @@ import Grid from "@material-ui/core/Grid";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
 import TokenBg from "../Images/searchtkbg.png";
+import ArrowDropDownIcom from '@material-ui/icons/ArrowDropDown'
+
+
 
 const useStyles = makeStyles({
   root: {
@@ -141,7 +144,7 @@ export default function Home() {
 
         {/* The wallet starred history  */}
         <div className="container mx-auto grid lg:grid-cols-2 grid-cols-1 gap-16 pb-10">
-          <div className="container grid grid-cols-3 border-2 self-center rounded-lg  text-white">
+          <div className="grid grid-cols-3 border-2 self-center rounded-lg  text-white">
             <button className="bg-transparent border-t-0 border-l-0 border-2 p-4">
               Reliability
             </button>
@@ -160,6 +163,8 @@ export default function Home() {
             <button className="bg-transparent border-t-0 border-l-0 border-r-0 border-b-0 border-2 p-4">
               Block Chain
             </button>
+            
+
           </div>
 
           {/* WALLET DIVS */}
@@ -168,9 +173,10 @@ export default function Home() {
               <Input />
             </div>
             <div className="grid grid-flow-row text-white">
-            <button className="rounded-full text-left pl-3 pt-2 pb-2 mr-4 ml-4" style={{backgroundColor:"#212743"}}>Wallet</button>
-            <button className="rounded-full text-left pl-3 pt-2 pb-2 mr-4 ml-4 mt-3 mb-3" style={{backgroundColor:"#212743"}}>Starred</button>
-            <button className="rounded-full text-left pl-3 pt-2 pb-2 mr-4 ml-4 mb-3 " style={{backgroundColor:"#212743"}}>History</button>
+            <button className="rounded-full text-left pl-3 pt-2 pb-2 mr-4 ml-4" style={{backgroundColor:"#212743"}}>Wallet  <ArrowDropDownIcom /></button>
+            <button className="rounded-full text-left pl-3 pt-2 pb-2 mr-4 ml-4 mt-3 mb-3" style={{backgroundColor:"#212743"}}>Starred <ArrowDropDownIcom/></button>
+            <button className="rounded-full text-left pl-3 pt-2 pb-2 mr-4 ml-4 mb-3 " style={{backgroundColor:"#212743"}}>History <ArrowDropDownIcom/></button>
+            
             </div>
             {/* <div>
               <div >

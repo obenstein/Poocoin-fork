@@ -15,20 +15,30 @@ import { useSelector } from 'react-redux'
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
+    backgroundColor:"#17151d"
   },
   tabTitle: {
     padding: 0,
-    backgroundColor: "#303030 !important",
+    backgroundColor: "#17151d !important",
   },
-  tabTitlePan: {
-    backgroundColor: "#565e64 !important",
+  tabTitlePan1: {
+    backgroundColor: "black !important",
     minWidth: "0px !important",
     textTransform: "inherit !important",
     minHeight: "0px",
     top: 10,
+    borderRadius:"20px 0px 0px 20px  "
+  },
+  tabTitlePan2: {
+    backgroundColor: "black !important",
+    minWidth: "0px !important",
+    textTransform: "inherit !important",
+    minHeight: "0px",
+    top: 10,
+    borderRadius:"0px 20px 20px 0px  "
   },
   tabpanel: {
-    backgroundColor: "#303030",
+    backgroundColor: "#17151d",
     color: "#fff",
     float: "left !important",
     width: "100% !important",
@@ -104,8 +114,8 @@ export default function CenteredTabs(props) {
         centered
         className={classes.tabTitle}
       >
-        <Tab label="Token" className={classes.tabTitlePan} />
-        <Tab label="News" className={classes.tabTitlePan} />
+        <Tab label="Token" className={classes.tabTitlePan1} />
+        <Tab label="News" className={classes.tabTitlePan2} />
       </Tabs>
       {/* <Divider className={'mb-3 mt-3'} /> */}
       <TabPanel value={value} index={0} className={classes.tabpanel}>
