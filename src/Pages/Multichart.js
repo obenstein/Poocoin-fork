@@ -16,6 +16,7 @@ import { storeLocalMultichart } from "../PooCoin/util";
 import TokenBg from "../Images/searchtkbg.png";
 import ArrowDropDownIcom from '@material-ui/icons/ArrowDropDown'
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp'
+import './MultiChart.css'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -132,6 +133,9 @@ const useStyles = makeStyles((theme) => ({
 export default function   Multichart() {
   const classes = useStyles();
   const [showMode, setShowMode] = React.useState(1);
+  const [Wallet, setWallet] = useState(false);
+  const [Starred, setStarred] = useState(false);
+  const [History, setHistory] = useState(false);
 
   const handleChange = () => {
     setShowMode(!showMode);
@@ -201,6 +205,7 @@ export default function   Multichart() {
   let container;
 
   if (showMode) {
+    
     container = (
       <Grid>
         
@@ -239,7 +244,7 @@ export default function   Multichart() {
             className=" text-white rounded-xl"
             style={{
               backgroundImage: `url(${TokenBg})`,
-              overflow: "hidden",
+              
               backgroundSize: "cover",
             }}
           >
@@ -252,7 +257,10 @@ export default function   Multichart() {
                 
               />
                <div className={classes.iconPaddingRight}>
-            <IconButton color="primary" aria-label="upload picture" component="span" className={classes.iconBtnRight} onClick={handleChangeRight}>
+            <IconButton color="inherit"
+        aria-label="upload picture"
+        component="span"
+        className="TelegramBtn" onClick={handleChangeRight}>
               <FileCopyIcon />
             </IconButton>
           </div>
@@ -263,9 +271,109 @@ export default function   Multichart() {
               <Input />
             </div>
             <div className="grid grid-flow-row text-white">
-            <button className="rounded-full text-left pl-3 pt-2 pb-2 mr-4 ml-4" style={{backgroundColor:"#212743"}}>Wallet  <ArrowDropDownIcom  /></button>
-            <button className="rounded-full text-left pl-3 pt-2 pb-2 mr-4 ml-4 mt-3 mb-3" style={{backgroundColor:"#212743"}}>Starred  <ArrowDropDownIcom  /></button>
-            <button className="rounded-full text-left pl-3 pt-2 pb-2 mr-4 ml-4 mb-3 " style={{backgroundColor:"#212743"}}>History  <ArrowDropDownIcom  /></button>
+            <button
+                onClick={() => {
+                  setWallet(!Wallet);
+                }}
+                className="rounded-full flex justify-between text-left pl-3 pt-2 pb-2 mr-4 ml-4 mb-3"
+                style={{ backgroundColor: "#212743" }}
+              >
+                Wallet
+                <span
+                  className={`pr-3 transition-all transform ${
+                    Wallet ? "rotate-90" : ""
+                  }`}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
+                </span>
+              </button>
+              {Wallet ? (
+                <p className="transition-all">These are wallet Details</p>
+              ) : (
+                ""
+              )}
+
+<button
+                onClick={() => {
+                  setStarred(!Starred);
+                }}
+                className="rounded-full flex justify-between text-left pl-3 pt-2 pb-2 mr-4 ml-4 mb-3"
+                style={{ backgroundColor: "#212743" }}
+              >
+                Starred
+                <span
+                  className={`pr-3 transition-all transform ${
+                    Starred ? "rotate-90" : ""
+                  }`}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
+                </span>
+              </button>
+              {Starred ? (
+                <p className="transition-all">These are Starred Details</p>
+              ) : (
+                ""
+              )}
+           <button
+                onClick={() => {
+                  setHistory(!History);
+                }}
+                className="rounded-full flex justify-between text-left pl-3 pt-2 pb-2 mr-4 ml-4 mb-3"
+                style={{ backgroundColor: "#212743" }}
+              >
+                History
+                <span
+                  className={`pr-3 transition-all transform ${
+                    History ? "rotate-90" : ""
+                  }`}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
+                </span>
+              </button>
+              {History ? (
+                <p className="transition-all">These are History Details</p>
+              ) : (
+                ""
+              )}
             </div>
           </div>
       </div>

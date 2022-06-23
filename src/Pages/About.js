@@ -27,6 +27,13 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import RedditIcon from "@material-ui/icons/Reddit";
 import TelegramIcon from "@material-ui/icons/Telegram";
 import HdrWeakIcon from "@material-ui/icons/HdrWeak";
+import TokenBg from "../Images/searchtkbg.png";
+import FileCopyIcon from '@material-ui/icons/FileCopy';
+import { FaStar } from "react-icons/fa";
+import { Rating } from "@material-ui/lab";
+
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -81,19 +88,22 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   button: {
-    backgroundColor: "#303032",
-    border: "1px solid #303032",
+    backgroundColor: "#5e4e7b",
+    border: "1px solid white",
     color: "#f8f9fa !important",
-    height: 35,
+    height: 30,
     marginLeft: 3,
-    fontSize: ".875rem",
+    fontSize: "0.8rem",
     fontWeight: 400,
+    borderRadius:'30px',
+    textTransform:'capitalize',
     boxShadow:"inset 0 1px 0 hsl(0deg 0% 100% / 15%), 0 1px 1px rgb(0 0 0 / 8%)",
   },
   selectBox: {
-    color: "rgb(51,51,51)",
-    fontSize: 14,
-    width: 230,
+    // backgroundColor:"red !important",
+    color: "red",
+    fontSize: 12,
+    width: 180,
     marginLeft: 7,
     zIndex: 999,
     [theme.breakpoints.down("xs")]: {
@@ -279,8 +289,9 @@ export default function About(props) {
     setCoinAddress(event.value);
   };
   let centerContainer = (
-    <div>
-      <div className={classes.headerContainer}>
+    <div> 
+      <div className="p-4 mt-2 rounded-lg" style={{backgroundImage: `url(${TokenBg})`,overflow:"hidden",backgroundSize:'cover'
+}}>
         <Grid container spacing={2}>
           <Grid xs={12} sm={6} md={6} xl={6} item>
             <p
@@ -290,27 +301,29 @@ export default function About(props) {
                 textAlign: "left",
                 margin: 0,
                 float: "left",
+                justifyContent:"center",
+                alignItems:"center"
               }}
             >
-              <img
-                className={classes.img}
-                src={`https://r.poocoin.app/smartchain/assets/${tokenAddress}/logo.png`}
-                width="32"
-                height="32"
-              />
               <span>
-                {currentTokenInfo.name} ({currentTokenInfo.name}/BNB)
+                {currentTokenInfo.name} ({currentTokenInfo.name}/BNB) 
                 <br />
-                <span className={"textSuccess"}>
+                <span className={"pricing"}>
                   ${parseFloat(priceRateData).toFixed(14)}
                 </span>
               </span>
             </p>
-            <div className={classes.tokenSelect} style={{ float: "left" }}>
+            <Rating max={1}/>
+
+            <div style={{ float: "left",display:'flex',justifyContent:'center',alignItems:'center' }}>
               <TokenSelect
                 inputHandle={inputHandle}
                 tokenProps={handleTokenPropsChange}
               />
+     <IconButton color="white" aria-label="upload picture" component="span" className='FileCopyBtn'>
+              <FileCopyIcon />
+            </IconButton>
+
             </div>
           </Grid>
           <Grid
@@ -321,31 +334,14 @@ export default function About(props) {
             item
             className={classes.buttongrid}
           >
-            {/* <div>
-              <Button
-                className={classes.button}
-                target="_blank"
-                href={`https://bscscan.com/token/${tokenAddress}`}
-              >
-                <img src={Buttonicon} width="18" height="18" />
-              </Button>
-            </div> */}
-            {/* <div>
-              <Button style={{ color: "white" }}>
-                <LanguageIcon style={{ color: "white" }} />
-                Website
-              </Button>
-              <Button style={{ color: "white" }}>
-                <TelegramIcon style={{ color: "white" }} />
-                Telegram
-              </Button>
-            </div> */}
           </Grid>
         </Grid>
         <Grid item container spacing={2} xs={12} className={classes.selecttool}>
           <Button className={classes.button}>Reload</Button>
           <div className={classes.selectBox}>
             <Select
+            style={{color:"black"}}
+            
               options={selectData}
               // input={false}
               onChange={tokenSelect}
@@ -399,14 +395,16 @@ export default function About(props) {
         <div className={classes.link}><a target="_blank" href="https://discord.gg/8NhHZNWhVf" className={classes.linkName}>Discord</a></div>
       </div> */}
       <Topings />
-      <div className={classes.centerContainer}>
+      <div className="container mx-auto max-w-4xl">
         <Grid container item xs={12}>
           <Grid item xs={12} md={4} sm={4} xl={4} className={classes.leftSide}>
+            
             <Lefttab
               lpdata={lpDatas}
               currentTokenInfo={currentTokenInfo}
               priceRateData={priceRateData}
             />
+            
           </Grid>
           <Grid item xs={12} md={8} sm={8} xl={8}>
             {centerContainer}

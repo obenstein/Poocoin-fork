@@ -11,13 +11,22 @@ import Sellers from './sellers';
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
-    backgroundColor: '#303030',
-    padding: 0,
+    backgroundColor: 'transparent',
+    padding:"20px 0",
   },
   tabTilteLength: {
     minWidth: '0px !important',
-    padding: 8,
+    padding: "5px 25px",
     textTransform: 'none',
+    borderRight:"solid 2px white"
+    
+    // color: '#fff',
+  },
+  tabTilteLength1: {
+    minWidth: '0px !important',
+    padding: "5px 25px",
+    textTransform: 'none',
+    
     // color: '#fff',
   },
   tabpanel: {
@@ -61,20 +70,29 @@ export default function CenteredTabs(props) {
   };
 
   return (
-    <div className={classes.root}>
+    <div >
+        <div className='border-2 rounded-full flex justify-center mt-10 mb-10 max-w-md p-0'>
+
       <Tabs
         value={value}
         onChange={handleChange}
         indicatorColor="primary"
         textColor="primary"
         centered
-        className={classes.tabName}
+        
       >
+        {/* <button>Token Tx</button>
+        <button>Wallet Tx</button>
+        <button>Buyers</button>
+        <button>Sellers</button> */}
+
         <Tab label="Token tx" className={classes.tabTilteLength} />
         <Tab label="Wallet tx" className={classes.tabTilteLength} />
         <Tab label="Buyers" className={classes.tabTilteLength} />
-        <Tab label="Sellers" className={classes.tabTilteLength} />
+        <Tab label="Sellers" className={classes.tabTilteLength1} />
       </Tabs>
+      </div>
+
       <TabPanel value={value} index={0} className={classes.tabpanel}>
         <Token tokenPrice={props.tokenPrice} />
       </TabPanel>

@@ -54,6 +54,8 @@ const useStyles = makeStyles({
     fontSize: "14px !important",
     fontFamily: '"Lato",sans-serif',
     paddingTop: "0px",
+    backgroundColor:"#262626",
+    borderRadius:"20px !important"
   },
   row: {
     color: "#28a745 !important",
@@ -148,7 +150,7 @@ export default function CustomizedTables(props) {
 
   return (
     <div>
-      <TableContainer component={Paper}>
+      <TableContainer className="bg-red-900" component={Paper}>
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow>

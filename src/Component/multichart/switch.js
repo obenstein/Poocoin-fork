@@ -1,6 +1,7 @@
 import React from 'react';
 import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import './FormControlLabel.css'
 
 export default function Switches() {
   const [state, setState] = React.useState({
@@ -13,7 +14,7 @@ export default function Switches() {
   };
 
   return (
-    <div>
+    <div className='flex FormSwitches'>
       {/* <Switch
         checked={state.checkedA}
         onChange={handleChange}
@@ -23,7 +24,7 @@ export default function Switches() {
       > Single blocks </Switch> */}
       <FormControlLabel
         control={<Switch checked={state.checkedA} onChange={handleChange} color="primary" name="checkedA" inputProps={{ 'aria-label': 'secondary checkbox' }} />}
-        label="Single blocks" style={{ color: 'white', marginLeft: 0 }}
+        label="Single blocks" style={{ color: 'white', marginLeft: 0,fontSize:'10px' }}
       />
       <FormControlLabel
         control={<Switch checked={state.checkedB} onChange={handleChange} color="primary" name="checkedB" inputProps={{ 'aria-label': 'primary checkbox' }} />}

@@ -1,0 +1,8 @@
+.TelegramBtn{
+    padding: 8px !important;
+    margin: 8px !important;
+    background: -webkit-linear-gradient(left,#12cb90,#076aac);
+    -webkit-text-fill-color: transparent;
+    float: left;
+    /* border-radius: 20% !important; */
+}

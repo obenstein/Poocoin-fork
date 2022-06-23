@@ -21,7 +21,7 @@
 }
 
 .WithStyles\(ForwardRef\(TableCell\)\)-body-55 {
-  background-color: #303030;
+  background-color: transparent;
   color: #fff;
   border-color: #000;
   border: 1px solid #000;
@@ -49,9 +49,9 @@
 }
 
 .MuiTab-textColorPrimary.Mui-selected {
-  border: 1px solid #fff;
-  background-color: #141414 !important;
-  border-radius: 0.25rem;
+  
+  background-color: transparent !important;
+  /* border-radius: 20px; */
 }
 
 .MuiTabs-indicator {

@@ -191,6 +191,8 @@ function getModalStyle() {
 }
 
 export default function Trade() {
+  console.log('current URL 👉️', window.location.href);
+
 
   const classes = useStyles();
 
@@ -435,7 +437,9 @@ export default function Trade() {
             >
               {body}
             </Modal>
-            <Button variant="contained" className={classNames(classes.tab, classes.button0)} ><Icon>link</Icon></Button>
+            <Button onClick={()=>{
+              navigator.clipboard.writeText(window.location.href)}
+            } variant="contained" className={classNames(classes.tab, classes.button0)} ><Icon>link</Icon></Button>
             <Button variant="contained" className={classNames(classes.tab, classes.button0)} ><Icon>settings</Icon></Button>
           </div>
           </div>

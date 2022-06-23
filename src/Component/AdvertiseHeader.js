@@ -19,9 +19,21 @@ const useStyles = makeStyles((theme) => ({
             backgroundColor:"white",
             color:"#11be94",
           },
+     
+          
     },
     aTag: {
-        padding: '11px'
+        padding: '11px',
+        '@media (max-width: 400px)': {
+            fontSize:"0.7rem"
+
+          },
+          "&:focus": {
+            backgroundColor:"white",
+            color:"#11be94",
+        borderRadius: '20px!important',
+
+          },
     }
 }));
 export default function AdvertiseHeader() {

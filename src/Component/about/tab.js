@@ -9,16 +9,16 @@ import News from "./news";
 import { getTotalSupply } from "../../PooCoin/index.js";
 import { numberWithCommas } from '../../PooCoin/util';
 import { useSelector } from 'react-redux'
+import './Tabs.css'
 
 // import { useState } from "react";
 
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
-    backgroundColor:"#17151d"
+    backgroundColor:"#17151d",
   },
   tabTitle: {
-    padding: 0,
     backgroundColor: "#17151d !important",
   },
   tabTitlePan1: {
@@ -26,16 +26,40 @@ const useStyles = makeStyles({
     minWidth: "0px !important",
     textTransform: "inherit !important",
     minHeight: "0px",
-    top: 10,
-    borderRadius:"20px 0px 0px 20px  "
+    border:"1px solid white",
+    borderRadius:"20px 0px 0px 20px",
+    top:5
+    
+    // "&:focus": {
+    //   backgroundColor:"white",
+    //   color:"#11be94",
+    //   borderRadius: '20px!important',
+
+    // },
   },
   tabTitlePan2: {
     backgroundColor: "black !important",
     minWidth: "0px !important",
     textTransform: "inherit !important",
     minHeight: "0px",
-    top: 10,
-    borderRadius:"0px 20px 20px 0px  "
+    borderRadius:"0px 20px 20px 0px",
+    border:"1px solid white",
+    top:5
+
+
+  },
+  
+  tabTitlePan3: {
+    backgroundColor: "black !important",
+    minWidth: "0px !important",
+    textTransform: "inherit !important",
+    minHeight: "0px",
+    borderRadius:"20px",
+    border:"1px solid white",
+    marginLeft:"10px",
+    top:5
+
+
   },
   tabpanel: {
     backgroundColor: "#17151d",
@@ -45,7 +69,7 @@ const useStyles = makeStyles({
   },
   item: {
     marginTop: 20,
-    fontSize: 15,
+    fontSize: 20,
     broderTop: "1px solid #141414",
     textAlign: "left",
     paddingLeft: 10,
@@ -99,13 +123,17 @@ export default function CenteredTabs(props) {
     }
   }
   const [value, setValue] = React.useState(0);
-
+  const L = <span className="flex items-center">Info<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+</svg></span>
+  
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   return (
     <Paper className={classes.root}>
+      <div className="pt-10">
       <Tabs
         value={value}
         onChange={handleChange}
@@ -116,7 +144,11 @@ export default function CenteredTabs(props) {
       >
         <Tab label="Token" className={classes.tabTitlePan1} />
         <Tab label="News" className={classes.tabTitlePan2} />
+        <Tab label={L} className={classes.tabTitlePan3} />
+      
+
       </Tabs>
+      </div>
       {/* <Divider className={'mb-3 mt-3'} /> */}
       <TabPanel value={value} index={0} className={classes.tabpanel}>
         <div className={classes.item}>

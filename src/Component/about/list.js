@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
   tokenTransaction: {
     textAlign: 'left',
-    padding: '15px',
+    padding: '10px 10px',
     fontSize: '15px',
     '& a:hover': {
       color: 'white'
@@ -158,8 +158,7 @@ const SimpleList = ({ lpdata, totalSupply, currentTokenInfo, priceRateData }) =>
         </p>
         <p className={classes.marketValue}>${pureMarketCap}</p>
       </div>
-      <Divider className={'mb-3 mt-3'} />
-      <div className={classes.SubList}>
+        <div className={classes.SubList}>
         <div className={classes.list}>
           {lpdata != null &&
             lpdata.map((row, index) =>
@@ -168,41 +167,46 @@ const SimpleList = ({ lpdata, totalSupply, currentTokenInfo, priceRateData }) =>
           {/* <LpInfoItem lpInfo={lpdata} /> */}
         </div>
       </div>
-      <Divider className={'mb-3 mt-3'} />
+      <div style={{backgroundColor:"#191d30"}} className="pt-4 pb-4">
       <div className={classes.tokenTransaction}>
-        <a target="_blank" href={`https://bscscan.com/token/${currentTokenAddress}`}>
-          <img src={BSC} className={classes.bscIcon} />
+          <div style={{backgroundColor:"#212743"}}  className="rounded-full bg-black p-2 ">
+        <a  target="_blank" href={`https://bscscan.com/token/${currentTokenAddress}`}>
           {currentTokenInfo.symbol}
-          &nbsp;Transactions
+          &nbsp;Our Transactions
         </a>
+        </div>
+      
       </div>
-      <Divider />
       <div className={classes.tokenTransaction}>
+      <div style={{backgroundColor:"#212743"}}  className="rounded-full bg-black p-2 ">
+
         <a target="_blank" href={`https://bscscan.com/address/${currentTokenAddress}#code`}>
-          <img src={BSC} className={classes.bscIcon} />
           {currentTokenInfo.symbol}
-          &nbsp;Contract
+          &nbsp;Our Contract
         </a>
+        </div>
+
       </div>
-      <Divider />
       <div className={classes.tokenTransaction} >
+      <div style={{backgroundColor:"#212743"}}  className="rounded-full bg-black p-2 ">
+
         <a target="_blank" href={`https://bscscan.com/token/${currentTokenAddress}#balances`}>
-          <img src={BSC} className={classes.bscIcon} />
           {currentTokenInfo.symbol}
-          &nbsp;Holders
+          &nbsp;Coin Holders
         </a>
+</div>
       </div>
-      <Divider />
+      </div>
       <div className={classes.tokenTransaction}>
         <a target="_blank" href={`https://explorer.bitquery.io/bsc/token/${currentTokenAddress}`}>
-          <img src="https://bitquery.io/wp-content/uploads/2020/09/bitquery_logo_w.png" className={classes.bitqueryIcon} />
           &nbsp;Bitquery Explorer
         </a>
       </div>
       <Divider />
       <div className={classes.presaleAd}>
-        <span>Presale Ad</span>
-        <Error className={classes.presaleAdIcon} onClick={modalOpen} />
+        <span className="flex items-center">PooCoin Visit Charts <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+</svg></span>
       </div>
       <Modal
         className={classes.modal}

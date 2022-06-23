@@ -44,6 +44,9 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       textDecoration: 'underline',
     },
+    '&:focus':{
+      textDecoration:'underline'
+    }
   },
   chainLinkGroup: {
     marginLeft: 15,
@@ -83,6 +86,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "10px"
   },
   connect: {
+    borderRadius:"20px",
     textTransform: 'none',
     fontSize: '0.8rem',
     fontWeight: '500',
@@ -159,7 +163,7 @@ export default function Header(props) {
     localStorage.setItem('PoocoinConnectStatus', connectWalletStatus.disconnect);
   }
 
-  let [userDisconnected, setUserDisconnected] = useState(connectStatus);
+  let [userDisconnected, setUserDisconnected] = useState(connectStatus);  
 
   const { account, connect, reset, balance } = useWallet()
   const [poocoinBalanceData, setPoocoinBalanceData] = useState([]);
@@ -302,7 +306,7 @@ export default function Header(props) {
                 <Link className={classes.link} to="/premium">Premium</Link>
                 <Link className={classes.link} to="/promote/banners">Advertise</Link>
                 <br/>
-                <Link className={classes.link} to="/premium">Price Free Bot</Link>
+                {/* <Link className={classes.link} to="/premium">Price Free Bot</Link> */}
               </div>
             </Grid>
           }

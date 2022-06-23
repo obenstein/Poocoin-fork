@@ -85,14 +85,14 @@ export default function Ape() {
                                             <InLineLink fontSize=".75rem" text={row.walletAddress} url={row.walletLink}></InLineLink>
                                         </TableCell>
                                         <TableCell align="right">
-                                            <p style={{fontSize:'.9rem', color:'#289C44', padding: 0, lineHeight:0.5}}>${row.usd}</p>
+                                            <p style={{fontSize:'.9rem', color:'#289C44', padding: 1, lineHeight:2}}>${row.usd}</p>
                                             <p style={{fontSize:'.75rem', color:'#6A6E73' ,padding: 0, lineHeight:0.5}} >{row.wbnb}WBNB</p>
                                         </TableCell>
                                         <TableCell style={{minWidth: '120px', border: '1px solid #262626', color:'white'}} align="center">{row.priority}</TableCell>
                                         <TableCell align="left" style={{border: '1px solid #262626'}}>
                                             <Link href={'https://bscscan.com/token/' + row.tokenAddress} color='#6A6E73'>
-                                                <p style={{fontSize:'.9rem', color:'white',padding: 0, lineHeight:0.5}}>{row.tokenType}</p>
-                                                <p style={{fontSize:'.9rem', color:'#6A6E73',padding: 0, lineHeight:0.5}}>{row.tokenAddress}</p>
+                                                <p style={{fontSize:'.9rem', color:'white',padding: 0, lineHeight:1}}>{row.tokenType}</p>
+                                                <p style={{fontSize:'.9rem', color:'#6A6E73',padding: 0, lineHeight:1}}>{row.tokenAddress}</p>
                                             </Link>
                                         </TableCell>
                                         <TableCell style={{minWidth: '160px'}} align="right">

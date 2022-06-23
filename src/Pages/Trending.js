@@ -175,7 +175,7 @@ export default function Tools () {
                                       <div>
                                         <img src={token.img} style={{display: 'inline-block', width: '25px', verticalAlign: 'super'}}></img>
                                         <div style={{display: 'inline-block'}}>
-                                            <p style={{lineHeight:0}}>{token.name1}</p>
+                                            <p style={{lineHeight:1}}>{token.name1}</p>
                                             <p>{token.name2}</p>
                                         </div>
                                       </div>                   
@@ -207,7 +207,7 @@ export default function Tools () {
                                       <div>
                                         <img src={token.img} style={{display: 'inline-block', width: '25px', verticalAlign: 'super'}}></img>
                                         <div style={{display: 'inline-block'}}>
-                                            <p style={{lineHeight:0}}>{token.name1}</p>
+                                            <p style={{lineHeight:1}}>{token.name1}</p>
                                             <p>{token.name2}</p>
                                         </div>
                                       </div>                   

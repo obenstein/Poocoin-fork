@@ -6,6 +6,18 @@
     -webkit-text-fill-color: transparent; 
      
 }
-.dollars{
-    color:#01f041;
+.pricing{
+    color:black;
+}
+.FileCopyBtn{
+    padding: 8px !important;
+    margin: 8px !important;
+    background: -webkit-linear-gradient(left,#12cb90,#076aac);
+    -webkit-text-fill-color: transparent;
+    float: left;
+    padding: "10px";
+    margin:"10px";
+    background-color: "#fff";
+    float: "left";
+
 }

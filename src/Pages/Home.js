@@ -7,9 +7,9 @@ import Grid from "@material-ui/core/Grid";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
 import TokenBg from "../Images/searchtkbg.png";
-import ArrowDropDownIcom from '@material-ui/icons/ArrowDropDown'
-
-
+import ArrowDropDownIcom from "@material-ui/icons/ArrowDropDown";
+import { useState } from "react";
+import Star from "@material-ui/icons/Star";
 
 const useStyles = makeStyles({
   root: {
@@ -26,6 +26,8 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "center",
     paddingBottom: "3rem",
+    overflow:"visible",
+    zIndex:"9999"
   },
   centerText: {
     fontSize: 30,
@@ -38,7 +40,7 @@ const useStyles = makeStyles({
   inputWidth: {
     width: "100%",
     padding: "1em 1em 1em 1em",
-    borderRadius:"20px"
+    borderRadius: "20px",
   },
   tabContainer: {
     minHeight: "700px !important",
@@ -72,9 +74,14 @@ const useStyles = makeStyles({
 });
 
 export default function Home() {
+
+
   const classes = useStyles();
   const history = useHistory();
   const dispatch = useDispatch();
+  const [Wallet, setWallet] = useState(false);
+  const [Starred, setStarred] = useState(false);
+  const [History, setHistory] = useState(false);
 
   const inputHandle = (tokenAddress) => {
     history.push(`/tokens/${tokenAddress}`);
@@ -128,7 +135,6 @@ export default function Home() {
             className=" text-white rounded-xl"
             style={{
               backgroundImage: `url(${TokenBg})`,
-              overflow: "hidden",
               backgroundSize: "cover",
             }}
           >
@@ -152,7 +158,7 @@ export default function Home() {
               Security
             </button>
             <button className="bg-transparent border-t-0 border-r-0 border-l-0 border-2 p-4">
-              Etherium
+              Ethereum
             </button>
             <button className="bg-transparent border-t-0 border-l-0 border-2 p-4 border-b-0">
               Web 3.0
@@ -161,22 +167,120 @@ export default function Home() {
               Low Fees
             </button>
             <button className="bg-transparent border-t-0 border-l-0 border-r-0 border-b-0 border-2 p-4">
-              Block Chain
+              Blockchain
             </button>
-            
-
           </div>
 
           {/* WALLET DIVS */}
-          <div className="rounded-xl" style={{backgroundColor:"#1c1e31"}}> 
+          <div className="rounded-xl" style={{ backgroundColor: "#1c1e31" }}>
             <div className={classes.inputWidth}>
               <Input />
             </div>
             <div className="grid grid-flow-row text-white">
-            <button className="rounded-full text-left pl-3 pt-2 pb-2 mr-4 ml-4" style={{backgroundColor:"#212743"}}>Wallet  <ArrowDropDownIcom /></button>
-            <button className="rounded-full text-left pl-3 pt-2 pb-2 mr-4 ml-4 mt-3 mb-3" style={{backgroundColor:"#212743"}}>Starred <ArrowDropDownIcom/></button>
-            <button className="rounded-full text-left pl-3 pt-2 pb-2 mr-4 ml-4 mb-3 " style={{backgroundColor:"#212743"}}>History <ArrowDropDownIcom/></button>
-            
+              <button
+                onClick={() => {
+                  setWallet(!Wallet);
+                }}
+                className="rounded-full flex justify-between text-left pl-3 pt-2 pb-2 mr-4 ml-4 mb-3"
+                style={{ backgroundColor: "#212743" }}
+              >
+                Wallet
+                <span
+                  className={`pr-3 transition-all transform ${
+                    Wallet ? "rotate-90" : ""
+                  }`}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
+                </span>
+              </button>
+              {Wallet ? (
+                <p className="transition-all">These are wallet Details</p>
+              ) : (
+                ""
+              )}
+
+              <button
+                onClick={() => {
+                  setStarred(!Starred);
+                }}
+                className="rounded-full flex justify-between text-left pl-3 pt-2 pb-2 mr-4 ml-4 mb-3"
+                style={{ backgroundColor: "#212743" }}
+              >
+                Starred
+                <span
+                  className={`pr-3 transition-all transform ${
+                    Starred ? "rotate-90" : ""
+                  }`}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
+                </span>
+              </button>
+              {Starred ? (
+                <p className="transition-all">These are Starred Details</p>
+              ) : (
+                ""
+              )}
+
+              <button
+                onClick={() => {
+                  setHistory(!History);
+                }}
+                className="rounded-full flex justify-between text-left pl-3 pt-2 pb-2 mr-4 ml-4 mb-3"
+                style={{ backgroundColor: "#212743" }}
+              >
+                History
+                <span
+                  className={`pr-3 transition-all transform ${
+                    History ? "rotate-90" : ""
+                  }`}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
+                </span>
+              </button>
+              {History ? (
+                <p className="transition-all">These are History Details</p>
+              ) : (
+                ""
+              )}
             </div>
             {/* <div>
               <div >
@@ -184,8 +288,7 @@ export default function Home() {
               </div>
             </div> */}
           </div>
-                    {/* WALLET DIVS */}
-
+          {/* WALLET DIVS */}
         </div>
       </div>
 

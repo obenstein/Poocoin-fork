@@ -4,12 +4,14 @@ import { makeStyles } from "@material-ui/core/styles";
 import FormControl from "@material-ui/core/FormControl";
 import TokenInput from "./TokenInput";
 import Select from "react-select";
+import './Select.css'
 // import { Field } from 'react-final-form'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     width: 300,
+    borderRadius:30,
     [theme.breakpoints.down("xs")]: {
       width: 250,
     },
@@ -28,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
   tokenSelect: {
     zIndex: 1000,
     width: "100%",
+    borderRadius:30,
     "& .MuiInputBase-input": {
       padding: ".75rem 3rem .75rem .75rem",
       fontSize: "1rem",
@@ -108,8 +111,10 @@ export default function SimpleSelect({ tokenProps, inputHandle }) {
   let search;
   if (isToken)
     search = (
+      
       <FormControl variant="outlined" className={classes.tokenSelect}>
         <Select
+        className='SelectTag' 
           options={tokensArray}
           onChange={tokenSelect}
           onInputChange={tokenInputChange}

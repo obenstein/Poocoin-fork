@@ -26,7 +26,6 @@ class Banners extends Component {
       <div className="mb-10">
         <Card className={"MainCard"}>
           <CardHeader title="A-ads Ad Spot(s)" style={{ color: "#00ff42" }} />
-          <hr />
           <CardContent>
             <h3 className="advDesc">
               The Pricing And Purchasing Of Banner Ads Is Here:
@@ -54,7 +53,7 @@ class Banners extends Component {
             </p>
             <hr />
 
-            <div className="flex justify-center items-center gap-3  ">
+            <div className="flex justify-center items-center gap-3 sm:flex-row flex-col ">
               <img
                 src={bannerpreview}
                 width="302"
@@ -62,7 +61,7 @@ class Banners extends Component {
                 className={"img-fluid border rounded"}
               />
               <br />
-              <div className="text-left">
+              <div className=" sm:text-left text-center">
                 <h2 className="PreviewHeading">Preview</h2>
                 <p className="text-sm leading-6">
                   If your project is an un-released fair launch, or a presale
@@ -100,11 +99,11 @@ function FooterContent() {
 
   return (
     <div
-      className="flex justify-around items-center rounded-xl mainFooter"
+      className="flex justify-around items-center rounded-xl mainFooter sm:flex-row flex-col"
       style={{ background: "#0f0e13" }}
     >
-      <div className="p-5">
-        <div className="flex justify-left items-center">
+      <div className="p-5 flex justify-center items-center flex-col">
+        <div className="flex items-center">
           <IconButton
         color="inherit"
         aria-label="upload picture"
@@ -122,7 +121,7 @@ function FooterContent() {
         />
       </div>
 
-      <div className="p-5">
+      <div className="p-5 justify-center items-center flex-col">
         <div className="flex justify-left items-center  ">
           <IconButton
          color="inherit"
@@ -140,7 +139,7 @@ function FooterContent() {
           fontSize="1rem"
         />
       </div>
-      <div className="p-5">
+      <div className="p-5 justify-center items-center flex-col">
         <div className="flex justify-left items-center">
           <IconButton
             color="inherit"
